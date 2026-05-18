@@ -10,12 +10,12 @@
 获取Cookie方法 ，QX开重写，进入【吉利汽车】
 
 ======调试区|忽略======
-# ^https?:\/\/app\.geely\.com\/my\/getMyCenterCounts$ url script-response-body http://192.168.2.170:8080/geely.js
+# ^https?:\/\/app\.geely\.com\/my\/getActionPost$ url script-response-body http://192.168.2.170:8080/geely.js
 ======调试区|忽略======
 
 ====================================
 [rewrite_local]
-^https?:\/\/app\.geely\.com\/my\/getMyCenterCounts$ url script-response-body https://raw.githubusercontent.com/wf021325/qx/master/task/geely.js
+^https?:\/\/app\.geely\.com\/my\/getActionPost$ url script-response-body https://raw.githubusercontent.com/wf021325/qx/master/task/geely.js
 
 [task_local]
 1 0 * * * https://raw.githubusercontent.com/wf021325/qx/master/task/geely.js, tag= 吉利汽车签到, enabled=true
@@ -230,7 +230,7 @@ async function intCryptoJS() {
     // const script_str = (await $.http.get('http://192.168.2.170:8080/crypto-js.min.js')).body;
     // Eval_Crypto(script_str);
     return new Promise(async resolve => {
-        $.getScript('http://ys-l.ysepan.com/551976330/420094417/k5G4J73367NKLlPfoiL4c/crypto-js.min.js').then(script_str => {
+        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js').then(script_str => {
             $.setdata(script_str, "cryptojs_Script");
             Eval_Crypto(script_str)
             $.log("✅ CryptoJS加载成功");
